@@ -43,18 +43,23 @@ public with sharing class ClassesObjectsMethods {
         String greeting = 'Hello, Salesforce!';
         
         // Get the length of the String        
-        String lengthOfGreeting = greeting.length();
+        Integer lengthOfGreeting = greeting.length();
 
         // Get a substring of the String of the first 5 characters
-        
+        String first5 = greeting.substring(1, 5);
+
         // Convert the String to lower case
+        String lowerGreeting = greeting.toLowerCase();
         
         // Return the list with the string data
+        return practiceStringMethods;
+
         // In the first position add the string length
+        practiceStringMethods
         // In the second position add the substring
         // In the third position add the string in lower case
 
-        return null; // Replace null with the variable you used to store the result
+        return greeting; // Replace null with the variable you used to store the result
     }
 
     /**
