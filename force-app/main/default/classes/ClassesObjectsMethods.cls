@@ -46,20 +46,22 @@ public with sharing class ClassesObjectsMethods {
         Integer lengthOfGreeting = greeting.length();
 
         // Get a substring of the String of the first 5 characters
-        String first5 = greeting.substring(1, 5);
+        String first5 = greeting.substring(0, 5);
 
         // Convert the String to lower case
-        String lowerGreeting = greeting.toLowerCase();
+        String lowerCaseGreeting = greeting.toLowerCase();
         
         // Return the list with the string data
-        return practiceStringMethods;
+        String [] greetingList = new List <String>();
 
         // In the first position add the string length
-        practiceStringMethods
+        greetingList.add(lengthOfGreeting);        
         // In the second position add the substring
+        greetingList.add(first5);
         // In the third position add the string in lower case
+        greetingList.add(lowerCaseGreeting);
 
-        return greeting; // Replace null with the variable you used to store the result
+        return practiceStringMethods; // Replace null with the variable you used to store the result
     }
 
     /**
