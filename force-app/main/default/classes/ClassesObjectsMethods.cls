@@ -55,13 +55,13 @@ public with sharing class ClassesObjectsMethods {
         String [] greetingList = new List <String>();
 
         // In the first position add the string length
-        greetingList.add(lengthOfGreeting);        
+        greetingList.add(lengthOfGreeting.toString());        
         // In the second position add the substring
         greetingList.add(first5);
         // In the third position add the string in lower case
         greetingList.add(lowerCaseGreeting);
 
-        return practiceStringMethods; // Replace null with the variable you used to store the result
+        return greetingList;
     }
 
     /**
@@ -73,14 +73,21 @@ public with sharing class ClassesObjectsMethods {
      */
     public static List<Boolean> checkStringContent(String input) {
         // Initialize a list to store the results
+        List<Boolean> hasContent = new List<Boolean>();
         
         // Check if the string starts with 'Sales'
-        
+        Boolean hasSales = input.startsWith('Sales');
+        hasContent.add(hasSales);
+
         // Check if the string ends with 'Force'
+        Boolean hasForce = input.endsWith('Force');
+        hasContent.add(hasForce);
         
         // Check if the string contains 'Awesome'
+        Boolean hasAwesome = input.contains('Awesome');  
+        hasContent.add(hasAwesome);
         
-        return null; // Replace null with the variable you used to store the result
+        return hasContent;
     }
 
     /**
@@ -92,15 +99,24 @@ public with sharing class ClassesObjectsMethods {
      */
     public static String removeDuplicateWords(String sentence) {
         // Split the sentence into words
-
+        List <String> parseWords = sentence.split(' ');
+        
         // Create a set to store the unique words
+        Set <String> storeWordsSet = new Set <String>();
 
         // Add each word to the set
+        // if (parseWords != null){
+        //     for (String word : parseWords){
+        //         storeWordsSet.add(word);
+        //     }
+        // }
+        storeWordsSet.addAll(parseWords);
 
         // Join the unique words back into a sentence
+        String joinWords = String.join(new List <String> (storeWordsSet), ' '); 
 
         // Return the sentence with unique words
-        return null; // Replace null with the variable you used to store the result
+        return joinWords;
     }
 
     /**
@@ -112,17 +128,24 @@ public with sharing class ClassesObjectsMethods {
      * @return The number of vowels in the string.
      */
     public static Integer countVowels(String str) {
+
         // Initialize the result Integer
-
-        /*
-        for () {
+        Integer vCount=0;
+        
+        for (Integer i=0; i < str.length(); i++) {
             // get individual characters from the string - hint use substring or split
-            // check if the character is a vowel
-            // if it is a vowel, increment the result Integer
-        }
-        */
 
-        return null; // Replace null with the variable you used to store the result
+           // string
+           String vowels = 'aeiou';
+           
+            if (str != null){
+                // check if the character is a vowel
+                 if(str.substring(i, i + 1).containsAny(vowels)){                    
+                    // if it is a vowel, increment the result Integer                    
+                    vCount ++;
+                }                
+            }
+        return vCount;
     }
 
     /**
