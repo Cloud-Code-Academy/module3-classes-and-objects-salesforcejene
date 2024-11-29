@@ -105,11 +105,6 @@ public with sharing class ClassesObjectsMethods {
         Set <String> storeWordsSet = new Set <String>();
 
         // Add each word to the set
-        // if (parseWords != null){
-        //     for (String word : parseWords){
-        //         storeWordsSet.add(word);
-        //     }
-        // }
         storeWordsSet.addAll(parseWords);
 
         // Join the unique words back into a sentence
@@ -130,21 +125,21 @@ public with sharing class ClassesObjectsMethods {
     public static Integer countVowels(String str) {
 
         // Initialize the result Integer
-        Integer vCount=0;
-        
-        for (Integer i=0; i < str.length(); i++) {
-            // get individual characters from the string - hint use substring or split
+        Integer vCount = 0;
+        // string
+        String vowels = 'aeiou';
 
-           // string
-           String vowels = 'aeiou';
+        for (Integer i=0; i < str.length(); i++) {
+            // get individual characters from the string - hint use substring or split           
            
             if (str != null){
                 // check if the character is a vowel
-                 if(str.substring(i, i + 1).containsAny(vowels)){                    
+                if(str.substring(i, i+1).containsAny(vowels)){                    
                     // if it is a vowel, increment the result Integer                    
                     vCount ++;
-                }                
+                }
             }
+        }
         return vCount;
     }
 
@@ -157,19 +152,24 @@ public with sharing class ClassesObjectsMethods {
      */
     public static String findTheScientist() {
         // The list of scientists' names
-        List<String> scientistNames = new List<String>{'Tim Berners-Lee', 'Alan Turing', 'Grace Hopper', 'Donald Knuth', 'Guido van Rossum', 'Ken Thompson', 'Stephen Hawking'};
+        List<String> scientistNames = new List<String>{'Tim Berners-Lee', 'Alan Turing', 'Grace Hopper', 'Donald Knuth', 'Guido van Rossum', 'Ken Thompson', 'Stephen Hawking'};   
 
         // The variable to store the concatenated string
+        String concatName = '';        
 
         // Loop through the list of scientists' names
-
+        for (String scientist : scientistNames){            
             // If the name doesn't contain the letter 'G', skip this iteration
-
+            if (!scientist.containsIgnoreCase('g')){
+                continue;                
+            } else {
             // Add the name to the result string, followed by a comma
-
+            concatName += scientist + ',';
+            }
+        }        
         // Remove the last comma from the result string
-
-        return null; // Replace null with the variable you used to store the result
+        concatName = concatName.removeEnd(',');        
+        return concatName;
     }
 
     /**
@@ -181,12 +181,15 @@ public with sharing class ClassesObjectsMethods {
      * @return The absolute value of the difference
      */
     public static Double calculateDifferenceOfSquares(Double a, Double b) {
+        Double result = 0.0;
+        Double exp = 2;
         // Square the input numbers using the Math.pow() function
-
+        Double resultA = math.pow(a, exp);
+        Double resultB = math.pow(b, exp);
         // Calculate the absolute difference using Math.abs() function
-
+        result = Math.abs(resultA - resultB);
         // Return the result
-        return null; // Replace null with the variable you used to store the result
+        return result;
     }
 
     /**
@@ -196,10 +199,12 @@ public with sharing class ClassesObjectsMethods {
      * @return A integer between 50 and 100.
      */
     public static Integer generateRandomNumber() {
+        Integer min = 50;
+        Integer max = 100;
         // Use Math class to generate number between 50 and 100
-
+        Integer randomInt = min + (Integer)Math.random() * (max - min + 1);
         // Return the random integer
-        return null; // Replace null with the variable you used to store the result
+        return randomInt;
     }
 
     /**
@@ -210,11 +215,13 @@ public with sharing class ClassesObjectsMethods {
      */
     public static String getCurrentDate() {
         // Get the todays date
+        String formattedCurrDate = Date.today().format();
 
         // Format the current date
+        
 
         // Return the result
-        return null; // Replace null with the variable you used to store the result
+        return formattedCurrDate;
     }
 
     /**
@@ -226,13 +233,24 @@ public with sharing class ClassesObjectsMethods {
     public static String getDayOfWeek(DateTime dt) {
         // Define a map of day of the week as a key and day number as the value
         // Monday = 1, Tuesday = 2, etc.
-
+        Map <String, String> daysOfWeekMap = new Map <String, String>{'Monday'=> '1', 
+                                                                    'Tuesday'=> '2',
+                                                                    'Wednesday' => '3',
+                                                                    'Thursday'=> '4',
+                                                                    'Friday' => '5',
+                                                                    'Saturday'=> '6',
+                                                                    'Sunday' => '7'
+        }; 
         // Get the day name using .format('EEEE');
+        String dayName = dt.format('EEEE');
+        System.debug('Show Johnny today\'s date: ' + dayName);
 
         // Get the day number from the map using the day name
+        String dayNumber = daysOfWeekMap.get(dayName);
+        System.debug('Show Johnny today\'s day name:: ' + dayNumber);
 
         // Return the result as a string
-        return null; // Replace null with the variable you used to store the result
+        return dayNumber;
     }
 
 

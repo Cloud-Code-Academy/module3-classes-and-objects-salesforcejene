@@ -5,5 +5,7 @@
 // You can also execute the entire file by running the command:
 //     SFDX: Execute Anonymous Apex with Editor Contents
 
-String str = 'Salesforce Salesforce Jene';
-ClassesObjectsMethods.countVowels(str);
+// List<String> scientistNames = new List<String>{'King Kong','John Fitzgerald Fuller', 'Jia-Li Soleil'};
+
+Datetime now = Datetime.now();
+ClassesObjectsMethods.getDayOfWeek(now);
